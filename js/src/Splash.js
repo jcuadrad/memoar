@@ -8,6 +8,11 @@ class Splash extends Component {
         super(props);
         this.state = {  }
     }
+
+    navigate = () => {
+        this.props.history.push('/signup');
+    }
+
     render() { 
         const { enterAR, ar } = this.props;
         return ( 
@@ -19,7 +24,7 @@ class Splash extends Component {
                         <Text style={localStyles.titleEmphasis}>AR</Text>
                     </Text>
                     <Text style={localStyles.paragraph}>An app that brings your best memories back to life.</Text>
-                    <TouchableHighlight style={localStyles.buttons} onPress={enterAR(ar)} underlayColor={'#68a0ff'}>
+                    <TouchableHighlight style={localStyles.buttons} onPress={this.navigate} underlayColor={'#68a0ff'}>
                         <Text style={localStyles.buttonText}>ENTER</Text>
                     </TouchableHighlight>
                 </View>

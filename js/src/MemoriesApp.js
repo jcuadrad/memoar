@@ -3,6 +3,7 @@ import { View } from 'react-native';
 import { NativeRouter, Route, Switch } from "react-router-native";
 
 import Splash from './Splash';
+import SignUp from './SignUp';
 
 class MemoriesApp extends Component {
     constructor(props) {
@@ -16,6 +17,7 @@ class MemoriesApp extends Component {
                 <View style={{flex: 1}}>
                     <Switch>
                         <Route exact path="/" render={(props) => <Splash {...props} enterAR={enterAR} ar={ar} />} />
+                        <Route exact path="/signup" render={(props) => <SignUp {...props} enterAR={enterAR} ar={ar} />} />
                     </Switch>
                 </View>
             </NativeRouter>

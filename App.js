@@ -85,7 +85,7 @@ export default class ViroSample extends Component {
     return () => {
       this.setState({
         navigatorType : navigatorType
-      })
+      }, () => console.log(this.state))
     }
   }
 
