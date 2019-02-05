@@ -1,12 +1,7 @@
 import React, { Component } from 'react';
-import {
-    AppRegistry,
-    Text,
-    View,
-    StyleSheet,
-    PixelRatio,
-    TouchableHighlight,
-  } from 'react-native';
+import { View, StyleSheet, Image, Text, TouchableHighlight } from 'react-native';
+
+import splash from '../res/SplashPhoto.png';
 
 class MemoriesApp extends Component {
     constructor(props) {
@@ -16,19 +11,32 @@ class MemoriesApp extends Component {
     render() { 
         const { enterAR, ar } = this.props;
         return ( 
-            <View style={localStyles.outer} >
-                <View style={localStyles.inner} >
+            // <View style={localStyles.container} >
+            //     <View style={localStyles.photo} >
         
-                <Text style={localStyles.titleText}>
-                    Choose your desired experience:
-                </Text>
-        
-                <TouchableHighlight style={localStyles.buttons}
-                    onPress={enterAR(ar)}
-                    underlayColor={'#68a0ff'} >
-        
-                    <Text style={localStyles.buttonText}>AR</Text>
-                </TouchableHighlight>
+            //         <Text style={localStyles.titleText}>
+            //             Choose your desired experience:
+            //         </Text>
+            
+            //         <TouchableHighlight style={localStyles.buttons}
+            //             onPress={enterAR(ar)}
+            //             underlayColor={'#68a0ff'} >
+            
+            //             <Text style={localStyles.buttonText}>AR</Text>
+            //         </TouchableHighlight>
+            //     </View>
+            // </View>
+            <View style={localStyles.viroContainer} >
+                <Image style={localStyles.photo} source={splash}></Image>
+                <View style={localStyles.titleContainer}>
+                    <Text style={localStyles.title}>
+                        MEMO
+                        <Text style={localStyles.titleEmphasis}>AR</Text>
+                    </Text>
+                    <Text style={localStyles.paragraph}>An app that brings your best memories back to life.</Text>
+                    <TouchableHighlight style={localStyles.buttons} onPress={enterAR(ar)} underlayColor={'#68a0ff'}>
+                        <Text style={localStyles.buttonText}>ENTER</Text>
+                    </TouchableHighlight>
                 </View>
             </View>
          );
@@ -39,19 +47,40 @@ class MemoriesApp extends Component {
 var localStyles = StyleSheet.create({
     viroContainer :{
       flex : 1,
-      backgroundColor: "black",
+      backgroundColor: "white",
     },
-    outer : {
+    container: {
       flex : 1,
       flexDirection: 'row',
       alignItems:'center',
       backgroundColor: "black",
     },
-    inner: {
-      flex : 1,
+    photo: {
+      flex : 4,
+      backgroundColor: "steelblue",
+    },
+    titleContainer: {
+      flex: 2,
+      padding: 30,
       flexDirection: 'column',
-      alignItems:'center',
-      backgroundColor: "black",
+      alignItems: 'flex-start',
+      justifyContent: 'center',
+      backgroundColor: '#3B3B3B'
+    },
+    title: {
+        color: 'white',
+        fontSize: 50,
+        fontWeight: 'bold',
+        fontStyle: 'italic',
+        marginBottom: 20,
+    },
+    paragraph: {
+        color: '#818181',
+        fontSize: 16,
+        fontWeight: '200'
+    },
+    titleEmphasis: {
+        color: '#DF4E40'
     },
     titleText: {
       paddingTop: 30,
@@ -63,19 +92,19 @@ var localStyles = StyleSheet.create({
     buttonText: {
       color:'#fff',
       textAlign:'center',
-      fontSize : 20
+      fontSize : 17
     },
     buttons : {
-      height: 80,
+      height: 50,
       width: 150,
-      paddingTop:20,
-      paddingBottom:20,
-      marginTop: 10,
-      marginBottom: 10,
-      backgroundColor:'#68a0cf',
-      borderRadius: 10,
-      borderWidth: 1,
-      borderColor: '#fff',
+      paddingTop: 0,
+      paddingBottom: 0,
+      flexDirection: 'row',
+      justifyContent: 'center',
+      alignItems: 'center',
+      marginTop: 25,
+      marginBottom: 20,
+      backgroundColor:'#DF4E40'
     },
     exitButton : {
       height: 50,
